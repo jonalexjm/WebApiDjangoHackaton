@@ -39,6 +39,8 @@ MIDDLEWARE = [
     'django.middleware.clickjacking.XFrameOptionsMiddleware',
 ]
 
+AUTH_USER_MODEL = 'users.User'
+
 ROOT_URLCONF = 'config.urls'
 
 TEMPLATES = [
@@ -65,8 +67,12 @@ WSGI_APPLICATION = 'config.wsgi.application'
 
 DATABASES = {
     'default': {
-        'ENGINE': 'django.db.backends.sqlite3',
-        'NAME': os.path.join(BASE_DIR, 'db.sqlite3'),
+        'ENGINE': 'django.db.backends.postgresql_psycopg2',
+        'NAME': 'freecodeschooldb',
+        'USER': 'postgres',
+        'PASSWORD': 'jonalexjm',
+        'HOST': 'localhost',
+        
     }
 }
 
@@ -108,3 +114,5 @@ USE_TZ = True
 # https://docs.djangoproject.com/en/3.0/howto/static-files/
 
 STATIC_URL = '/static/'
+MEDIA_ROOT = 'media'
+MEDIA_URL = '/media/'
